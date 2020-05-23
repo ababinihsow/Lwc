@@ -1,0 +1,12 @@
+<template>
+    <div class="container">
+        <lightning-layout vertical-align="center">
+            <lightning-layout-item>
+                {percentage}%
+            </lightning-layout-item>
+            <lightning-layout-item flexibility="grow">
+                <lightning-progress-bar value={percentage} size="large"></lightning-progress-bar>
+            </lightning-layout-item>
+        </lightning-layout>
+    </div>
+</template>

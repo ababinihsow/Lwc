@@ -1,0 +1,21 @@
+<template>
+    Hello,{wiredGreeting}!
+    <br/>
+    <lightning-input label="Name" value={gretting} onchange={handlechange} onblur={logHistory}></lightning-input>
+    <template if:true={showDetail}>
+        <div class="slds-m-vertical_medium">
+            不允许输入xx
+        </div>
+    </template>
+    <template if:true={showHistory}>
+        <lightning-card title="input Histoty List">
+            <ul class="slds-m-around_medium">
+                <template for:each={historyList} for:item="h" for:index="i">
+                    <li key={h.Id}>
+                        {i}. {h.Name}
+                    </li>
+                </template>
+            </ul>
+        </lightning-card>
+    </template>
+</template>
