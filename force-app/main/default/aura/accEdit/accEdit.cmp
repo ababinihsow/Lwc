@@ -1,0 +1,14 @@
+<aura:component implements="flexipage:availableForRecordHome, force:hasRecordId">
+    <aura:attribute name="Record" type="Object" />
+    <aura:attribute name="accountRecord" type="Object"/>
+    <aura:attribute name="recordSaveError" type="String"/>
+    <force:recordData aura:id="recordEditor" layoutType="FULL" mode="EDIT" recordId="{!v.recordId}" targetError="{!v.recordSaveError}" targetFields="{!v.accountRecord}" targetRecord="{!v.Record}"/>
+    <lightning:card iconName="action:edit" title="Edit Account">
+        <lightning:input value="{!v.accountRecord.Name}" label="Account Name"/>
+        <lightning:button label="Save Account" variant="brand" onclick="{!c.handleSaveRecord}"/>
+    </lightning:card>
+    <aura:if isTrue="{!not(empty(v.recordSaveError))}">
+        <div class="recordError">{!v.recordSaveError}</div>
+        
+    </aura:if>
+</aura:component>	

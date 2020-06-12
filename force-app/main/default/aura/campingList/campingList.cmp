@@ -1,0 +1,13 @@
+<aura:component controller="CampingListController" implements="force:appHostable,flexipage:availableForAllPageTypes" access="global">
+    <aura:attribute name="items" type="Camping_Item__c[]" />
+    <aura:attribute name="newItem" type="Camping_Item__c" default="{'Price__c': 0,'Quantity__c': 0,'sobjectType': 'Camping_Item__c'}" />
+        <!-- CREATE NEW EXPENSE -->
+        <aura:handler name="init" value="{!this}" action="{!c.doInit}"/>
+        <aura:handler name="addItem" event="c:addItemEvent" action="{!c.handleAddItem }"/>
+        <c:campingListForm/>
+
+        <aura:iteration items="{!v.items}" var="item">
+            <c:campingListItem item="{!item}"/>
+        </aura:iteration>
+        <!-- / CREATE NEW EXPENSE -->
+</aura:component>	
